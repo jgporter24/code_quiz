@@ -10,29 +10,82 @@
 </head>
 
 <header>
-    <nav class="nav">
-        <h3>View High Score</h3>
-        <h3 class="timer">Time Left</h3>
-    </nav>
+    <div class="header">
+        <!--left corner to view high score-->
+        <div>
+            <button class="button" id="check_score">View Highscores</button>
+        </div>
+        <!--right corner to set a timer-->
+        <div>
+            <p id="timer"> Time left: 75 s</p>
+        </div>
+    </div>
 </header>
 
+
 <body>
-    <section>
-        <div class="card">
-            <h2 class="card-text">This is where the question will go</h2>
-            <ul calss="button">
-                <button class="button1">Answer a</button>
-                <button class="button2">Answer b</button>
-                <button class="button3">Answer c</button>
-                <button class="button4">Answer d</button>
-            </ul>
+    <main>
+        <div>
+            <!--introduction section-->
+            <section class="intro" id="intro">
+                <div id="introduction">
+                    <h1>
+                        Coding Quiz Timed Challenge
+                    </h1>
+                    <p id="instruction">
+                        Try to answer the following questions within the time limit. Please note for every incorrect answers 10 seconds will be deducted from the timer. 
+                    </p>
+                    <button class="button" id="button_start">Start Quiz</button>
+                </div>
+            </section>
 
+            <!--questions section-->
+            <section class="question_page" id="question_page">
+                <div>
+                    <!--question body-->
+                    <div>
+                        <h2 id = "ask_question">Ask the question</h2>
+                        <ul>
+                            <li><button class ="choices" id="answer1" value="a">Answer1</button></li>
+                            <li><button class ="choices" id="answer2" value="b">Answer2</button></li>
+                            <li><button class ="choices" id="answer3" value="c">Answer3</button></li>
+                            <li><button class ="choices" id="answer4" value="d">Answer4</button></li>
+                        </ul>
+                    <div>
 
+                    <!--Result check-->
+                    <div id="check_result">
+                        <p>Correct or Wrong</p>
+                    <!-- </div> -->
+                </div>
+            </section>
 
+            <!--Outcome section-->
+            <section class="outcome_page" id="outcome_page">
+                <div>
+                    <h2 id="finish">All Done!</h2>
+                    <p id = "final_score">Your final score is: </p>
+                    <p>Enter initials
+                        <input id="initial">
+                        <button class="button" id="submit_btn">Submit</button>
+                    </p>
+                </div>
+            </section>
 
+            <!--high score section-->
+            <section class="highscore_page" id ="highscore_page">
+                <div>
+                    <h2>High Scores</h2>
+                    <div id="score_record"><p>Your record</p></div><br><br>
+                    <div>
+                        <button class="button" id="back_btn">Go back</button>
+                        <button class="button" id="clear_btn">Clear Highscores</button>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
-
+    </main>
+<script src="script.js"></script>
 </body>
 
 </html>
