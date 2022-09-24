@@ -237,4 +237,14 @@
         saveScore();
     });
     
-   
+    // check highscore ranking list
+    scoreCheck.addEventListener("click", function(event) {
+        event.preventDefault();
+        gradeBoard.style.display = "none";
+        introPage.style.display = "none";
+        highScorePage.style.display = "block";
+        questionPage.style.display ="none";
+        renderScore();
+    });
+    
+    
