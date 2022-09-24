@@ -14,11 +14,11 @@
     
     var checkRslt = document.querySelector("#check_result");
     var gradeBoard = document.querySelector("#outcome_page");
-    var finalScore = document.querySelector("#final_score");
+    var endScore = document.querySelector("#total_score");
     var userInitial =document.querySelector("#initial");
     
     var submitBtn =document.querySelector("#submit_btn");
-    var highScorePage =document.querySelector("#highscore_page");
+    var highScorePage =document.querySelector("#highscore");
     var scoreRecord =document.querySelector("#score_record");
     var scoreCheck =document.querySelector("#check_score");
     var finish =document.querySelector("#finish");
@@ -26,7 +26,7 @@
     var backBtn =document.querySelector("#back_btn");
     var clearBtn=document.querySelector("#clear_btn");
     
-        //Define questions (Object)
+        //Define questions
     var questionSource = [
         {
             question: "Questions 1 : Inside which HTML element do we put the JavaScript?",
@@ -69,4 +69,64 @@
             answer: "a"
         }
     ];
+        //Set timer and score variables
+    
+    var timeLeft = document.getElementById("timer");
+    
+    var secondsLeft = 75;
+    var questionNumber = 0;
+    var totalScore = 0;
+    var questionCount = 1;
+
+    //Functions
        
+    function countdown() {
+            
+            var timerInterval = setInterval(function () {
+    
+              secondsLeft--;
+              timeLeft.textContent = "Time left: " + secondsLeft + " s";
+        
+                if (secondsLeft <= 0){
+                    clearInterval(timerInterval);
+                    timeLeft.textContent = "Time's up!"; 
+                    // if time is up, show on score board
+                    finish.textContent = "Time's up!";
+                    gameOver();
+    
+                } else  if(questionCount >= questionSource.length +1) {
+                    clearInterval(timerInterval);
+                    gameOver();
+                    } 
+        }, 1000);
+    }
+    
+        //Click to start the quiz
+    function startQuiz () {
+            introPage.style.display = "none";
+            questionPage.style.display = "block";
+            questionNumber = 0
+            countdown();
+            showQuestion(questionNumber);
+          
+    }
+        //present the questions and answers
+    function showQuestion (n) {
+            askQuestion.textContent = questionSource[n].question;
+            answerBtn1.textContent = questionSource[n].choices[0];
+            answerBtn2.textContent = questionSource[n].choices[1];
+            answerBtn3.textContent = questionSource[n].choices[2];
+            answerBtn4.textContent = questionSource[n].choices[3];
+            questionNumber = n;
+        }
+    
+        //Show if answer is correct or wrong 
+    function checkAnswer(event) {
+        event.preventDefault();
+        //make it display
+        checkRslt.style.display = "block";
+        setTimeout(function () {
+            checkRslt.style.display = 'none';
+        }, 1000);
+    
+        

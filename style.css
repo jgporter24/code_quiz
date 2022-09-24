@@ -51,7 +51,7 @@ li {
 }
 
 /*display only the intro page*/
-.question_page, .outcome_page, .highscore_page, #check_line {
+.question_page, .outcome_page, .highscore, #check_line {
     display:none;
 }
 
