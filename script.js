@@ -247,4 +247,19 @@
         renderScore();
     });
     
+    //go back to main page
+    backBtn.addEventListener("click",function(event){
+            event.preventDefault();
+            gradeBoard.style.display = "none";
+            introPage.style.display = "block";
+            highScorePage.style.display = "none";
+            questionPage.style.display ="none";
+            location.reload();
+    });
     
+    //clear local storage and clear page shows
+    clearBtn.addEventListener("click",function(event) {
+        event.preventDefault();
+        localStorage.clear();
+        renderScore();
+    });

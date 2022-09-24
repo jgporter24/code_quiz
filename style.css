@@ -1,10 +1,10 @@
 * {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
 
-.header{
-    display:flex;
+.header {
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
@@ -15,27 +15,29 @@ body {
     min-height: 100vh;
     justify-content: center;
     background-repeat: no-repeat;
-    background-position:center; 
+    background-position: center;
     background-size: cover;
-  }
+}
 
 main {
     text-align: center;
     justify-content: center;
     flex: 1 0 auto;
-    margin-left:200px;
-    margin-right:200px;
+    margin-left: 200px;
+    margin-right: 200px;
 }
+
 footer {
     text-align: center;
 }
 
 .question_page {
-    display:flex;
+    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
 }
+
 /*hides the bullet points */
 ul {
     list-style-type: none;
@@ -44,38 +46,41 @@ ul {
     flex-direction: column;
     align-items: baseline;
     padding-left: 50px;
-   }
+}
 
 li {
     margin-bottom: 10px;
 }
 
 /*display only the intro page*/
-.question_page, .outcome_page, .highscore, #check_line {
-    display:none;
+.question_page,
+.outcome_page,
+.highscore,
+#check_line {
+    display: none;
 }
 
 /* Button characteristics */
-.button{
-    background:purple;
-    color:white;
+.button {
+    background: purple;
+    color: white;
     border-radius: 3px;
     padding: 10px;
     cursor: pointer;
     margin-bottom: 10px;
-  }
-
-.choices {
-    background:purple;
-    color:white;
 }
 
-.choices:hover{
+.choices {
+    background: purple;
+    color: white;
+}
+
+.choices:hover {
     background-color: rgb(246, 182, 246);
 }
 
-.button:hover{
-  
-    background-color:rgb(205, 245, 247);
-  
+.button:hover {
+
+    background-color: rgb(205, 245, 247);
+
 }
