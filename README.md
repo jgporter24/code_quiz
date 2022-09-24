@@ -21,3 +21,10 @@ Below are snippets of what the quiz looks like before clicking the start button,
 ![](images/finished.png)
 
 ![](images/high_scores.png)
+
+## Usage
+The elements of this site express and show the functionality of how you can use HTML, CSS, and JavaScript to create an interactive and designed website. It does this by also giving the user an experience to test their knowledge. 
+
+## Thank You
+
+Huge thanks to classmates, office hours and tutors for making this site possible, js can be tedious for but taking time and talking through it helps build a complete picture. 
