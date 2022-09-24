@@ -129,4 +129,112 @@
             checkRslt.style.display = 'none';
         }, 1000);
     
-        
+        // answer check, if else statements
+        if (questionSource[questionNumber].answer == event.target.value) {
+            checkRslt.textContent = "Awesome!"; 
+            totalScore = totalScore + 1;
+    
+        } else {
+            secondsLeft = secondsLeft - 10;
+            checkRslt.textContent = "Oops! The correct answer is " + questionSource[questionNumber].answer + " .";
+        }
+             //show another question
+        if (questionNumber < questionSource.length -1 ) {
+        // call showQuestions to bring in next question when any reactBtn is clicked
+            showQuestion(questionNumber +1);
+        } else {
+        gameOver();
+    }
+    questionCount++;
+    }
+        // Game is over
+    function gameOver() {
+    
+            questionPage.style.display = "none";
+            gradeBoard.style.display = "block";
+            console.log(gradeBoard);
+            // show end score
+            endScore.textContent = "Your total score is :" + totalScore ;
+            // clearInterval(timerInterval);  
+            timeLeft.style.display = "none"; 
+    };
+    
+    // get current score and initials from local storage
+    function getScore () {
+        var currentList =localStorage.getItem("ScoreList");
+        if (currentList !== null ){
+            freshList = JSON.parse(currentList);
+            return freshList;
+        } else {
+            freshList = [];
+        }
+        return freshList;
+    };
+    
+    
+    // render score to the score board
+    function renderScore () {
+        scoreRecord.innerHTML = "";
+        scoreRecord.style.display ="block";
+        var highScores = sort();   
+        // Slice the high score array to only show the top five high scores. 
+        var topFive = highScores.slice(0,5);
+        for (var i = 0; i < topFive.length; i++) {
+            var item = topFive[i];
+        // Show the score list on score board
+        var li = document.createElement("li");
+        li.textContent = item.user + " - " + item.score;
+        li.setAttribute("data-index", i);
+        scoreRecord.appendChild(li);
+        }
+    };
+    
+    // sort score and ranking the highscore list
+    function sort () {
+        var unsortedList = getScore();
+        if (getScore == null ){
+            return;
+        } else{
+        unsortedList.sort(function(a,b){
+            return b.score - a.score;
+        })
+        return unsortedList;
+    }};
+    
+    // push new score and initial to the local storage
+    function addItem (n) {
+        var addedList = getScore();
+        addedList.push(n);
+        localStorage.setItem("ScoreList", JSON.stringify(addedList));
+    };
+    
+    function saveScore () {
+        var scoreItem ={
+            user: userInitial.value,
+            score: totalScore
+        }
+        addItem(scoreItem);
+        renderScore();
+    }
+    
+    // Add event listeners
+    // startbtn to start the quiz
+    startBtn.addEventListener("click", startQuiz);
+    
+    //click any choices button, go to the next question
+    reactButtons.forEach(function(click){
+    
+        click.addEventListener("click", checkAnswer);
+    });
+    
+    //save information and go to next page
+    submitBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        gradeBoard.style.display = "none";
+        introPage.style.display = "none";
+        highScorePage.style.display = "block";
+        questionPage.style.display ="none";
+        saveScore();
+    });
+    
+   
